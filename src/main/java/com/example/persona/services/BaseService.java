@@ -1,6 +1,8 @@
 package com.example.persona.services;
 
 import com.example.persona.entities.Base;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.io.Serializable;
 import java.util.List;
@@ -8,6 +10,8 @@ import java.util.List;
 public interface BaseService<E extends Base, ID extends Serializable> {
     //Lista de todas las personas en la BD
     public List<E> findAll() throws Exception;
+    //Paginacion
+    public Page<E> findAll(Pageable pageable) throws  Exception;
     //Busca por Id
     public E findById(ID id) throws Exception;
     //Crea una nueva entidad
